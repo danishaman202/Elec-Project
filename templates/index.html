@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Electrical surges and sags prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="Current 1" placeholder="Current 1" required="required" />
+        <input type="text" name="Current 2" placeholder="Current 2" required="required" />
+        <input type="text" name="Current 3" placeholder="Current 3" required="required" />
+        <input type="text" name="Voltage 1" placeholder="Voltage 1" required="required" />
+        <input type="text" name="Voltage 2" placeholder="Voltage 2" required="required" />
+        <input type="text" name="Voltage 3" placeholder="Voltage 3" required="required" />
+        <input type="text" name="Total Power" placeholder="Total Power" required="required" />
+        <input type="text" name="Location" placeholder="Location" required="required" />
+        <input type="text" name="Max Energy" placeholder="Max Energy" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
